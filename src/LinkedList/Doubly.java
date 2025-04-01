@@ -165,6 +165,23 @@ public class Doubly {
         return val;
     }
 
+    // function to reverse the doubly linkedlist:-
+
+    public Node reverse(){
+        Node curr=head;
+        Node prev=null;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            curr.prev=next;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+        return head;
+    }
+
 
     public static void main(String[] args) {
         Doubly dll=new Doubly();
@@ -176,19 +193,12 @@ public class Doubly {
 
         dll.addMiddle(3,2);
         dll.addMiddle(4,3);
-        dll.print();
-
-        System.out.println(dll.removeFirst());
-
-
-        System.out.println(dll.removeLast());
 
         dll.print();
 
-        System.out.println(dll.removeMiddle(1));
+        head=dll.reverse();
 
         dll.print();
-
 
     }
 }
