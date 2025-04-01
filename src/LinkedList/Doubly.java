@@ -44,13 +44,35 @@ public class Doubly {
         System.out.print("null");
     }
 
+    // function to add node in the last of double linkedlist:-
+    public void addLast(int data){
+        Node newNode =new Node(data);
+        size++;
+        if(head==null){
+            head=tail=newNode;
+            return;
+        }
+
+        newNode.prev=tail;
+        tail.next=newNode;
+        tail=newNode;
+        tail.next=null;
+
+    }
+
+
+
+
     public static void main(String[] args) {
         Doubly dll=new Doubly();
         dll.addFirst(10);
         dll.addFirst(5);
         dll.addFirst(10);
         dll.addFirst(15);
+        dll.addLast(100);
         dll.print();
+        System.out.println();
+        System.out.println(size);
 
 
 
